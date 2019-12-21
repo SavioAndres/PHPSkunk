@@ -9,3 +9,5 @@
  * @link    https://github.com/SavioAndres/PHPSkunk
  * @since   Version 0.0.1
  */
+
+include_once 'controller/main.php';
