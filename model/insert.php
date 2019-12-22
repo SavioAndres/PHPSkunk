@@ -2,9 +2,9 @@
 
 namespace Model;
 
-use Model\Database;
+use Model\Database\Connect;
 
-class Insert
+class Insert extends Connect
 {
 
     public function __construct()
@@ -14,8 +14,11 @@ class Insert
 
     public function ins()
     {
-        $conn = Database::connect();
-        
+        $conn = parent::connect();
+        return $conn;
     }
 
 }
+
+$vai = new Insert();
+var_dump($vai->ins());
