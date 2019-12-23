@@ -10,4 +10,32 @@
  * @since   Version 0.0.1
  */
 
-include_once 'controller/main.php';
+//include_once 'controller/main.php';
+//include_once 'model/database/connect.php';
+include_once 'model/database/crud.php';
+
+$crud = new Model\Database\Crud('testando');
+//$crud->setTable();
+$columns = ['nome', 'sobrenome'];
+$values = ['s2', 'a2'];
+$obj = new StdClass();
+$obj->lugar = 'rua';
+$obj->sol = 'lua';
+//echo key($obj);
+//var_dump($obj);
+ 
+//var_dump($obj);
+//$crud->insertObject($obj);
+//foreach ($obj as $key => $value) {
+//    echo $key . ' - ' . $value . '<br>';
+//}
+$a['teskey'] = 'primeiro';
+$a['teskey2'] = 'primeiro2';
+$a['teskey3'] = 'primeiro3';
+
+$s = new StdClass();
+$s->nome = 'outro teste';
+$s->sobrenome = 'vaiii';
+$crud->create($s);
+//$r = $crud->arrayToObject($a);
+//var_dump($s);
