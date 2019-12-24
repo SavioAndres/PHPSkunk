@@ -1,6 +1,6 @@
 <?php
 
-namespace Model\Database;
+namespace App\Model\Database;
 
 abstract class Connect
 {

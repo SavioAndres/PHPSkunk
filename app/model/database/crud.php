@@ -1,8 +1,8 @@
 <?php
 
-namespace Model\Database;
+namespace App\Model\Database;
 
-use Model\Database\Connect;
+use App\Model\Database\Connect;
 
 include_once 'connect.php';
 
