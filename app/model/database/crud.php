@@ -118,4 +118,11 @@ class Crud extends Connect
         return $countValues > 0 ? $questionMark . '?' : '';
     }
 
+    public function read(int $id) : array
+    {
+        $stmt = Connect::connect()->prepare('SELECT * FROM ' . $this->table . ' WHERE id=?');
+        $stmt->execute([$id]); 
+        return $stmt->fetch();
+    }
+
 }

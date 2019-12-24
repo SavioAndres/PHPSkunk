@@ -9,7 +9,7 @@
  * @link    https://github.com/SavioAndres/PHPSkunk
  * @since   Version 0.0.1
  */
-
+/*
 //include_once 'controller/main.php';
 //include_once 'model/database/connect.php';
 include_once 'app/model/database/crud.php';
@@ -40,3 +40,5 @@ $s->sobrenome = 'vaiii';
 //$r = $crud->arrayToObject($a);
 //var_dump($s);
 include_once 'helpers.php';
+*/
+include_once 'app/view/pages/main.php';
