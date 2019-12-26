@@ -4,15 +4,26 @@ namespace App\Operator;
 
 use App\Model\Database\Crud;
 
-class Teste
+class Teste implements Skunk
 {
-    public static function obter() : array
+    public static function variables() : array
+    {
+        return self::obter();
+    }
+
+    public static function content() : void
+    {
+        define('TITLE', 'y');
+        self::inserir();
+    }
+
+    private function obter() : array
     {
         $crud = new Crud('testando');
         return $crud->read(1);
     }
 
-    public static function inserir()
+    private function inserir() : void
     {
         if(isset($_POST['enviar'])) {
             $crud = new Crud('testando');

@@ -1,11 +1,8 @@
 <?php
 require_once '../../vendor/autoload.php';
-use App\Operator\Teste;
-
-extract(Teste::obter());
-Teste::inserir();
-define('TITLE', 'y');
-
+use App\Operator\Teste as T;
+extract(T::variables());
+T::content();
 include_template('head', 'nav', 'header', 'aside');
 ?>
     <p>ID: <?=$id?></p>
