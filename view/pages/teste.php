@@ -1,13 +1,12 @@
 <?php
-include_once '../../operator/teste.php';
-extract(Teste::obter());
-Teste::inserir();
+
+require_once '../../vendor/autoload.php';
+
+extract(App\Operator\Teste::obter());
+App\Operator\Teste::inserir();
 define('TITLE', 'y');
 
-include_once '../templates/head.php';
-include_once '../templates/nav.php';
-include_once '../templates/header.php';
-include_once '../templates/aside.php';
+include_template('head', 'nav', 'header', 'aside');
 ?>
     <p>ID: <?=$id?></p>
     <p>Nome: <?=$nome?></p>
@@ -19,4 +18,4 @@ include_once '../templates/aside.php';
         <input type="submit" name="enviar"/>
     </form>
 <?php
-include_once '../templates/footer.php';
+include_template('footer');

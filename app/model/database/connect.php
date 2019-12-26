@@ -5,10 +5,10 @@ namespace App\Model\Database;
 abstract class Connect
 {
 
-    private static $HOST = 'localhost';
-    private static $NAME = 'test';
-    private static $USER = 'root';
-    private static $PASS = '';
+    private static $HOST = DATABASE['host'];
+    private static $NAME = DATABASE['dbname'];
+    private static $USER = DATABASE['username'];
+    private static $PASS = DATABASE['password'];
 
     private static $instance = null;
 

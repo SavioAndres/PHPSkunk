@@ -1,4 +1,4 @@
-DirectoryIndex app/view/pages/index.php
+DirectoryIndex view/pages/index.php
 
 Options -Indexes
 
@@ -10,4 +10,4 @@ RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html
 
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9_\/-]+)$ app/view/pages/$1 [NC,L]
+RewriteRule ^([a-zA-Z0-9_\/-]+)$ view/pages/$1 [NC,L]

@@ -4,8 +4,6 @@ namespace App\Model\Database;
 
 use App\Model\Database\Connect;
 
-include_once 'connect.php';
-
 class Crud extends Connect
 {
 

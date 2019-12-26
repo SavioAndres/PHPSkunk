@@ -1,3 +1,5 @@
+A página de configuração está em app/config.php
+
 # Arquitetura MVO
 Este framework utiliza um padrão de arquitetura único, dado o nome de MVO.<br/>
 
