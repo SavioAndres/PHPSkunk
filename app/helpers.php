@@ -1,10 +1,5 @@
 <?php
 
-
-function gh() : void {
-    echo 'o helper deu certo';
-}
-
 function include_template() : void
 {
     $args = func_get_args();

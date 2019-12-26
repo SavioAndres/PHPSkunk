@@ -16,10 +16,16 @@ class Teste
     {
         if(isset($_POST['enviar'])) {
             $crud = new Crud('testando');
-            $obj = new StdClass();
-            $obj->nome = $_POST['nome'];
-            $obj->sobrenome = $_POST['sobrenome'];
-            $crud->create($obj);
+            //$obj = new \StdClass();
+            //$obj->nome = $_POST['nome'];
+            //$obj->sobrenome = $_POST['sobrenome'];
+            $obj = array(
+                'nome' => $_POST['nome'],
+                'sobrenome' => $_POST['sobrenome']
+            );
+            //var_dump($obj);
+            $crud->createBySendingArray($obj);
+            
         }
     }
 

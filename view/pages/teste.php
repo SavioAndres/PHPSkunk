@@ -1,9 +1,9 @@
 <?php
-
 require_once '../../vendor/autoload.php';
+use App\Operator\Teste;
 
-extract(App\Operator\Teste::obter());
-App\Operator\Teste::inserir();
+extract(Teste::obter());
+Teste::inserir();
 define('TITLE', 'y');
 
 include_template('head', 'nav', 'header', 'aside');
