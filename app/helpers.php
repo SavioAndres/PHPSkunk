@@ -1,6 +1,6 @@
 <?php
 
-function include_template() : void
+function include_template(): void
 {
     $args = func_get_args();
 
@@ -16,4 +16,9 @@ function include_template() : void
             throw new Exception($path . ' template not found', 1);
         }
     }
+}
+
+function insert_ajax()
+{
+
 }

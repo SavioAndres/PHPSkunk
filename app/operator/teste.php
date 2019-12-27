@@ -6,26 +6,26 @@ use App\Model\Database\Crud;
 
 class Teste implements Skunk
 {
-    public static function variables() : array
+    public static function variables(): array
     {
         return self::obter();
     }
 
-    public static function content() : void
+    public static function content(): void
     {
         define('TITLE', 'y');
         self::inserir();
     }
 
-    private function obter() : array
+    private function obter(): array
     {
         $crud = new Crud('testando');
         return $crud->read(1);
     }
 
-    private function inserir() : void
+    private function inserir(): void
     {
-        if(isset($_POST['enviar'])) {
+        if(isset($_POST['nome'])) {
             $crud = new Crud('testando');
             //$obj = new \StdClass();
             //$obj->nome = $_POST['nome'];

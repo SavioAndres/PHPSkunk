@@ -2,30 +2,28 @@
 
 namespace App\Model\Database;
 
-abstract class Connect
+class Connect
 {
-
     private static $HOST = DATABASE['host'];
     private static $NAME = DATABASE['dbname'];
     private static $USER = DATABASE['username'];
     private static $PASS = DATABASE['password'];
-
     private static $instance = null;
 
-    protected static function connect()
+    protected static function connect(): object
     {
-        if (!isset(self::$instance)) {
+        if (is_null(self::$instance)) {
             self::sqlConn();
         }
         return self::$instance;
     }
 
-    protected static function close()
+    protected static function close(): void
     {
         die();
     }
 
-    private static function sqlConn()
+    private static function sqlConn(): void
     {
         try {
             $sql = 'mysql:host=' . self::$HOST . ';dbname=' . self::$NAME . ';charset=utf8';

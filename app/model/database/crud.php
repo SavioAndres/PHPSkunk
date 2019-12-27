@@ -13,34 +13,37 @@ class Crud extends Connect
         $this->table = $table;
     }
 
-    public function setTable(string $table)
+    public function setTable(string $table): void
     {
         $this->table = $table;
     }
 
-    public function getTable() : string
+    public function getTable(): string
     {
         return $this->table;
     }
 
-    public function create(object $obj) : void
+    public function create(object $obj): void
     {
         $keysAndValues = $this->getStringKeysValues($obj);
         $columns = $keysAndValues[0];
         $values = $keysAndValues[1];
         $questionMark = $keysAndValues[2];
-
-        $sql = 'INSERT INTO ' . $this->table . ' (' . $columns . ') VALUES (' . $questionMark . ')';
-        $stmt = Connect::connect()->prepare($sql);
-        $stmt->execute($values);
+        try {
+            $sql = 'INSERT INTO ' . $this->table . ' (' . $columns . ') VALUES (' . $questionMark . ')';
+            $stmt = Connect::connect()->prepare($sql);
+            $stmt->execute($values);
+        } catch (Exception $e) {
+            echo 'erro'.$e->getMessage();
+        }
     }
 
-    public function createBySendingArray(array $array) : void
+    public function createBySendingArray(array $array): void
     {
         $this->create((object) $array);
     }
 
-    private function getStringKeysValues(object $obj) : array
+    private function getStringKeysValues(object $obj): array
     {   
         (string) $keys = '';
         (array) $values = [];
@@ -58,7 +61,7 @@ class Crud extends Connect
         return [$keys, $values, $questionMark];
     }
 
-    public function read(int $id) : array
+    public function read(int $id): array
     {
         $stmt = Connect::connect()->prepare('SELECT * FROM ' . $this->table . ' WHERE id=?');
         $stmt->execute([$id]); 

@@ -5,14 +5,25 @@ extract(T::variables());
 T::content();
 include_template('head', 'nav', 'header', 'aside');
 ?>
-    <p>ID: <?=$id?></p>
-    <p>Nome: <?=$nome?></p>
-    <p>Sobrenome: <?=$sobrenome?></p>
-    <hr/>
-    <form method="post">
-        <input type="text" name="nome"/>
-        <input type="text" name="sobrenome"/>
-        <input type="submit" name="enviar"/>
-    </form>
+    <div class="container">
+        <p>ID: <?=$id?></p>
+        <p>Nome: <?=$nome?></p>
+        <p>Sobrenome: <?=$sobrenome?></p>
+        <div class="row">
+            <form method="post" id="primeiroform" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate" name="nome"/>
+                        <label for="first_name">Primeiro nome</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate" name="sobrenome"/>
+                        <label for="last_name">Sobrenome</label>
+                    </div>
+                </div>
+                <a onclick="insert(primeiroform); M.toast({html: 'Enviado com sucesso'})" class="btn">Enviar</a>
+            </form>
+        </div>
+    </div>
 <?php
 include_template('footer');
