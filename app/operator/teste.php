@@ -15,6 +15,7 @@ class Teste implements Skunk
     {
         define('TITLE', 'y');
         self::inserir();
+        self::delete();
     }
 
     private function obter(): array
@@ -37,6 +38,16 @@ class Teste implements Skunk
             //var_dump($obj);
             $crud->createBySendingArray($obj);
             
+        }
+    }
+
+    private function delete(): void
+    {
+        echo "<script>console.log('i');</script>";
+        if (isset($_POST['inpdelete'])) {
+            echo "<script>console.log('fech');</script>";
+            $crud = new Crud('testando');
+            $crud->delete($_POST['inpdelete']);
         }
     }
 

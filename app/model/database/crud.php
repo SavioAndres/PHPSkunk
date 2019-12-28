@@ -63,9 +63,17 @@ class Crud extends Connect
 
     public function read(int $id): array
     {
-        $stmt = Connect::connect()->prepare('SELECT * FROM ' . $this->table . ' WHERE id=?');
+        //WHERE id=?
+        $stmt = Connect::connect()->prepare('SELECT * FROM ' . $this->table . '');
         $stmt->execute([$id]); 
-        return $stmt->fetch();
+        return $stmt->fetchAll();
+    }
+
+    public function delete(int $id): void
+    {
+        $stmt = Connect::connect()->prepare('DELETE FROM ' . $this->table . 'WHERE id = :id');
+        $stmt->bindParam(':id', $id); 
+        $stmt->execute();
     }
 
 }

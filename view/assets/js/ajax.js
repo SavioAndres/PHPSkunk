@@ -18,7 +18,7 @@ function xhrequest() {
     return !request ? alert("Your browser does not support Ajax.") : request;
 }
 
-function insert(id) {
+function formInsert(id) {
     let req = xhrequest();
     let form = id.elements;
     let str_value = '';
@@ -34,7 +34,20 @@ function insert(id) {
     req.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             id.reset();
-            //console.log('deu certo');
+            document.getElementById("retr").innerHTML = str_value;
+            console.log('deu certo');
+        }
+    }
+}
+
+function formDelete(id) {
+    let req = xhrequest();
+    req.open("POST", window.location.href, true);
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    req.send('inpdelete='+id);
+    req.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            console.log('deu certo');
         }
     }
 }
