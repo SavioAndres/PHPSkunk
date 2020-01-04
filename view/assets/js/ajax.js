@@ -22,9 +22,11 @@ function formInsert(id) {
     let req = xhrequest();
     let form = id.elements;
     let str_value = '';
+    let values = [];
     for (let i = 0; i < form.length; i++) {
         if (form[i]['type'] !== 'button') {
             str_value += form[i]['name'] + '=' + form[i]['value'] + '&'
+            values.push(form[i]['value']);
         }
     }
     str_value = str_value.substring(0,(str_value.length - 1));
@@ -34,8 +36,15 @@ function formInsert(id) {
     req.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             id.reset();
-            document.getElementById("retr").innerHTML = str_value;
-            console.log('deu certo');
+            var f = document.getElementById("area").innerHTML;
+            let textContent = '';
+            for (let i = 0; i < values.length; i++) {
+                textContent += '<td>' + values[i] + '</td>';
+            }
+            document.getElementById("area").innerHTML = "<tr><td></td>" + textContent +"<td></td></tr>" + f;
+            //var myObj = JSON.parse();
+            //document.getElementById("demo").innerHTML = myObj.name;
+            console.log(this.responseText);
         }
     }
 }
